@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://www.vivarchhospital.com";
+  const siteUrl = "https://vivarchhealth.com";
   return [
     {
       url: siteUrl,

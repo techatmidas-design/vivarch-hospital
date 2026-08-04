@@ -15,7 +15,7 @@ const bodyFont = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = "https://www.vivarchhospital.com";
+const siteUrl = "https://vivarchhealth.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
