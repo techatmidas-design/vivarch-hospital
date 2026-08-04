@@ -2,25 +2,144 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #071426;
+
+  --color-primary-50: #eaf3fc;
+  --color-primary-100: #cfe4f8;
+  --color-primary-200: #9cc8ef;
+  --color-primary-300: #63a8e4;
+  --color-primary-400: #2f87d6;
+  --color-primary-500: #005bac;
+  --color-primary-600: #004a8c;
+  --color-primary-700: #003a6e;
+  --color-primary-800: #052a4d;
+  --color-primary-900: #071c33;
+
+  --color-accent-300: #a6f2ee;
+  --color-accent-400: #6fe3e0;
+  --color-accent-500: #3fd0d6;
+  --color-accent-600: #22b3ba;
+
+  --color-ink: #071426;
+  --color-mist: #f4f8fb;
+  --color-mist-dark: #e8f0f7;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+
+  --color-ink: var(--color-ink);
+  --color-mist: var(--color-mist);
+  --color-mist-dark: var(--color-mist-dark);
+
+  --animate-float-slow: float 7s ease-in-out infinite;
+  --animate-float-slower: float 11s ease-in-out infinite;
+  --animate-gradient-shift: gradient-shift 16s ease infinite;
+  --animate-pulse-ring: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-marquee: marquee 34s linear infinite;
+  --animate-heartbeat-draw: heartbeat-draw 3.2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #071426;
+    --foreground: #f4f8fb;
   }
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-accent-400);
+  color: var(--color-primary-900);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-18px) translateX(8px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes heartbeat-draw {
+  0% { stroke-dashoffset: 1000; }
+  70% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #ffffff 0%, var(--color-accent-300) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-mesh {
+  background-image:
+    radial-gradient(at 20% 20%, rgba(63, 208, 214, 0.35) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(0, 91, 172, 0.5) 0px, transparent 50%),
+    radial-gradient(at 0% 80%, rgba(0, 74, 140, 0.55) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, rgba(63, 208, 214, 0.25) 0px, transparent 50%);
 }
