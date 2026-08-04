@@ -58,6 +58,9 @@ export const metadata: Metadata = {
     images: ["/images/og-cover.jpg"],
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "CNkiacaSwtBk45nEXpr3oYHtqdFofE7v9UkBUIIYAt8",
+  },
 };
 
 const hospitalSchema = {
