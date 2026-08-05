@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Phone, CalendarCheck, ArrowLeft, GraduationCap, Stethoscope, Building } from "lucide-react";
+import {
+  Phone,
+  CalendarCheck,
+  ArrowLeft,
+  GraduationCap,
+  Stethoscope,
+  Building,
+  Award,
+  BadgeCheck,
+} from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Container } from "@/components/ui/Container";
@@ -85,10 +95,23 @@ export default async function DoctorPage(props: PageProps<"/doctors/[slug]">) {
                 <ArrowLeft className="h-4 w-4" /> Leadership
               </Link>
             </Reveal>
-            <Reveal delay={0.08} className="flex items-center gap-5">
-              <span className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-400 to-primary-500 font-display text-2xl font-extrabold text-primary-900 shadow-xl">
-                {initials(doc.name)}
-              </span>
+            <Reveal delay={0.08} className="flex items-center gap-6">
+              {doc.photo ? (
+                <span className="relative block h-28 w-28 flex-shrink-0 overflow-hidden rounded-3xl shadow-xl ring-1 ring-white/15 sm:h-32 sm:w-32">
+                  <Image
+                    src={doc.photo}
+                    alt={`${doc.name}, ${doc.role} at Vivarch Hospital`}
+                    fill
+                    sizes="128px"
+                    className="object-cover object-top"
+                    priority
+                  />
+                </span>
+              ) : (
+                <span className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-400 to-primary-500 font-display text-2xl font-extrabold text-primary-900 shadow-xl">
+                  {initials(doc.name)}
+                </span>
+              )}
               <div>
                 <h1 className="font-display text-[clamp(1.6rem,3.5vw,2.75rem)] font-extrabold leading-tight text-white">
                   {doc.name}
@@ -102,6 +125,13 @@ export default async function DoctorPage(props: PageProps<"/doctors/[slug]">) {
         <section className="bg-white py-20">
           <Container className="grid grid-cols-1 gap-12 lg:grid-cols-[1.6fr_1fr]">
             <Reveal className="flex flex-col gap-8">
+              {doc.achievement && (
+                <div className="flex items-center gap-3 rounded-2xl border border-primary-100 bg-primary-50 px-5 py-4">
+                  <Award className="h-5 w-5 flex-shrink-0 text-primary-500" />
+                  <p className="text-sm font-semibold text-primary-800">{doc.achievement}</p>
+                </div>
+              )}
+
               <div>
                 <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
                   <GraduationCap className="h-4 w-4" /> Qualifications
@@ -116,6 +146,12 @@ export default async function DoctorPage(props: PageProps<"/doctors/[slug]">) {
                     </span>
                   ))}
                 </div>
+                {doc.registrationNumber && (
+                  <p className="mt-2.5 flex items-center gap-1.5 text-xs text-slate-400">
+                    <BadgeCheck className="h-3.5 w-3.5" />
+                    Registration No. {doc.registrationNumber}
+                  </p>
+                )}
               </div>
 
               <div>

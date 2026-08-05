@@ -1,8 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { GraduationCap, BriefcaseMedical, Stethoscope, Building, ArrowUpRight } from "lucide-react";
+import {
+  GraduationCap,
+  BriefcaseMedical,
+  Stethoscope,
+  Building,
+  ArrowUpRight,
+  Award,
+  BadgeCheck,
+} from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -44,27 +53,52 @@ export function Directors() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="glass grid grid-cols-1 gap-8 rounded-[2rem] p-8 lg:grid-cols-[280px_1fr] lg:p-10"
+                className="glass grid grid-cols-1 gap-8 rounded-[2rem] p-6 lg:grid-cols-[260px_1fr] lg:p-8"
               >
                 <div className="flex flex-col items-start gap-5">
-                  <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-gradient-to-br from-accent-400 to-primary-500 font-display text-3xl font-extrabold text-primary-900 shadow-xl">
-                    {initials(doctor.name)}
-                  </div>
+                  <Link
+                    href={`/doctors/${doctor.slug}`}
+                    className="group relative block aspect-[4/5] w-full overflow-hidden rounded-[1.5rem] ring-1 ring-white/15 transition-all duration-500 hover:ring-accent-400/60"
+                  >
+                    {doctor.photo ? (
+                      <>
+                        <Image
+                          src={doctor.photo}
+                          alt={`${doctor.name}, ${doctor.role} at Vivarch Hospital`}
+                          fill
+                          sizes="(min-width: 1024px) 260px, 100vw"
+                          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-primary-900/0 to-primary-900/10" />
+                      </>
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent-400 to-primary-500 font-display text-3xl font-extrabold text-primary-900">
+                        {initials(doctor.name)}
+                      </div>
+                    )}
+                    {doctor.experience && (
+                      <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-primary-900/70 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
+                        <BriefcaseMedical className="h-3.5 w-3.5" />
+                        {doctor.experience}
+                      </span>
+                    )}
+                  </Link>
                   <div>
                     <Link href={`/doctors/${doctor.slug}`} className="hover:text-accent-300">
                       <h3 className="font-display text-xl font-bold text-white">{doctor.name}</h3>
                     </Link>
                     <p className="mt-1 text-sm font-semibold text-accent-300">{doctor.role}</p>
                   </div>
-                  {doctor.experience && (
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white/70">
-                      <BriefcaseMedical className="h-3.5 w-3.5" />
-                      {doctor.experience}
-                    </span>
-                  )}
                 </div>
 
                 <div className="flex flex-col gap-6 border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+                  {doctor.achievement && (
+                    <div className="flex items-center gap-3 rounded-2xl border border-accent-400/20 bg-accent-500/10 px-4 py-3">
+                      <Award className="h-5 w-5 flex-shrink-0 text-accent-300" />
+                      <p className="text-sm font-semibold text-accent-100">{doctor.achievement}</p>
+                    </div>
+                  )}
+
                   <div>
                     <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/40">
                       <GraduationCap className="h-4 w-4" /> Qualifications
@@ -79,6 +113,12 @@ export function Directors() {
                         </span>
                       ))}
                     </div>
+                    {doctor.registrationNumber && (
+                      <p className="mt-2.5 flex items-center gap-1.5 text-xs text-white/40">
+                        <BadgeCheck className="h-3.5 w-3.5" />
+                        Registration No. {doctor.registrationNumber}
+                      </p>
+                    )}
                   </div>
 
                   <div>

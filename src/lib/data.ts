@@ -136,16 +136,40 @@ export const departments = [
   },
 ] as const;
 
-export const doctors = [
+type Doctor = {
+  name: string;
+  role: string;
+  slug: string;
+  photo: string | null;
+  qualifications: string[];
+  experience: string | null;
+  specializations: string[];
+  affiliations: string[];
+  achievement: string | null;
+  registrationNumber: string | null;
+  department: string;
+  departmentSlug: string;
+};
+
+export const doctors: Doctor[] = [
   {
     name: "Dr. Vijay Vilasrao Sharnangat",
     role: "Medical Director & Lead Oncologist",
     slug: "dr-vijay-vilasrao-sharnangat",
-    photo: null,
+    photo: "/images/doctors/dr-vijay-vilasrao-sharnangat.jpg",
     qualifications: ["MBBS", "MD Internal Medicine", "DM Medical Oncology"],
     experience: "~20 years experience",
-    specializations: ["Chemotherapy", "Immunotherapy", "Bone Marrow Transplant", "Cancer Care"],
+    specializations: [
+      "Chemotherapy",
+      "Immunotherapy",
+      "Targeted Therapy",
+      "Hormone Therapy",
+      "Bone Marrow Transplant",
+      "Cancer Care",
+    ],
     affiliations: ["HCG Cancer Centre Borivali", "Thunga Hospital"],
+    achievement: "50,000+ chemotherapy cycles administered",
+    registrationNumber: null,
     department: "Oncology & Hematology",
     departmentSlug: "oncology-hematology",
   },
@@ -153,7 +177,7 @@ export const doctors = [
     name: "Dr. Rahil Rauf Ansari",
     role: "Director of Neurological Services",
     slug: "dr-rahil-rauf-ansari",
-    photo: null,
+    photo: "/images/doctors/dr-rahil-rauf-ansari.jpg",
     qualifications: [
       "MBBS",
       "MD",
@@ -161,9 +185,11 @@ export const doctors = [
       "DM Neurology",
       "Fellowship in Epilepsy Surgery",
     ],
-    experience: null,
+    experience: "10+ years experience",
     specializations: ["Stroke", "Epilepsy", "Brain Disorders", "Neuro Critical Care"],
-    affiliations: [],
+    affiliations: ["Ex Assistant Professor of Neurology, Seth GSMC & KEM Hospital, Mumbai"],
+    achievement: null,
+    registrationNumber: "MMC 2018010175",
     department: "Neurology",
     departmentSlug: "neurology",
   },
@@ -171,7 +197,7 @@ export const doctors = [
     name: "Dr. Chandrashekhar Ramdavar Yadav",
     role: "Director of Cardiology",
     slug: "dr-chandrashekhar-ramdavar-yadav",
-    photo: null,
+    photo: "/images/doctors/dr-chandrashekhar-ramdavar-yadav.jpg",
     qualifications: ["MBBS", "MD Medicine", "DM Cardiology"],
     experience: "14+ years experience",
     specializations: [
@@ -182,10 +208,12 @@ export const doctors = [
       "Cardiac Emergencies",
     ],
     affiliations: [],
+    achievement: null,
+    registrationNumber: null,
     department: "Cardiology",
     departmentSlug: "cardiology",
   },
-] as const;
+];
 
 export const corporateLeadership = [
   { name: "Vaishali Jahangir Satpudke", role: "Corporate Director" },

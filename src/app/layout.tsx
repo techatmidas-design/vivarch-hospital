@@ -125,7 +125,9 @@ const physicianSchemas = doctors.map((doctor) => ({
   jobTitle: doctor.role,
   medicalSpecialty: doctor.department,
   worksFor: { "@type": "Hospital", name: hospital.brand, url: siteUrl },
+  image: doctor.photo ? `${siteUrl}${doctor.photo}` : undefined,
   ...(doctor.qualifications.length > 0 && { hasCredential: doctor.qualifications }),
+  ...(doctor.registrationNumber && { identifier: doctor.registrationNumber }),
 }));
 
 const organizationSchema = {
