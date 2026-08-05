@@ -30,11 +30,11 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden">
+    <section id="home" className="relative flex min-h-[88svh] items-center overflow-hidden">
       <HeroBackground />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 pb-10 lg:px-10 lg:pt-28">
-        <div className="flex max-w-4xl flex-col items-start gap-5">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-20 pb-14 lg:px-10 lg:pt-24">
+        <div className="flex max-w-4xl flex-col items-start gap-6">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-[clamp(2.25rem,5.5vw,4.5rem)] font-extrabold leading-[1.05] tracking-tight text-white"
+            className="font-display text-[clamp(2.6rem,6vw,4.85rem)] font-extrabold leading-[1.05] tracking-tight text-white"
           >
             Premium Healthcare,
             <br />
