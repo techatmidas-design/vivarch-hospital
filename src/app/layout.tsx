@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { hospital, doctors } from "@/lib/data";
 
@@ -169,6 +170,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         ))}
         {children}
       </body>
+      <GoogleAnalytics gaId="G-JWZKNE7SFS" />
     </html>
   );
 }
