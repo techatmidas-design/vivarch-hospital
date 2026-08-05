@@ -75,7 +75,7 @@ export function HeroBackground() {
 
       {/* heartbeat line */}
       <svg
-        className="absolute bottom-[18%] left-0 w-full opacity-40"
+        className="absolute bottom-[10%] left-0 w-full opacity-40"
         height="80"
         viewBox="0 0 1200 80"
         fill="none"
@@ -131,7 +131,7 @@ export function HeroBackground() {
       />
 
       {/* bottom fade to white */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-22 bg-gradient-to-t from-white to-transparent" />
     </div>
   );
 }
