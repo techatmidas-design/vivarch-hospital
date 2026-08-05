@@ -58,12 +58,12 @@ export function HeroBackground() {
       </motion.div>
 
       {/* brand colour grade over the photo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/95 via-primary-800/75 to-primary-900/40 mix-blend-multiply" />
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-900/55 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/70 to-primary-900/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 via-primary-900/50 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/15 to-transparent" />
 
       {/* animated mesh gradient */}
-      <div className="bg-mesh absolute inset-0 bg-[length:200%_200%] animate-gradient-shift opacity-60 mix-blend-screen" />
+      <div className="bg-mesh absolute inset-0 bg-[length:200%_200%] animate-gradient-shift opacity-30" />
 
       {/* soft glow orbs */}
       <motion.div
