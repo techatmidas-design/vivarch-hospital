@@ -13,7 +13,7 @@ const buttonStyles = cva(
         primary:
           "bg-primary-500 text-white hover:bg-primary-600 shadow-[0_8px_30px_-8px_rgba(0,91,172,0.6)] focus-visible:ring-primary-400",
         accent:
-          "bg-accent-500 text-primary-900 hover:bg-accent-400 shadow-[0_8px_30px_-8px_rgba(63,208,214,0.6)] focus-visible:ring-accent-400",
+          "bg-gradient-to-r from-accent-400 to-accent-600 text-primary-900 hover:brightness-110 shadow-[0_10px_34px_-6px_rgba(63,208,214,0.8)] focus-visible:ring-accent-400",
         outline:
           "border border-white/30 text-white hover:bg-white/10 focus-visible:ring-white/50",
         ghost:

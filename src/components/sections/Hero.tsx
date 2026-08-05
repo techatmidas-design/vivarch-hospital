@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Phone, CalendarCheck, Stethoscope } from "lucide-react";
 import { HeroBackground } from "@/components/sections/HeroBackground";
 import { Button } from "@/components/ui/Button";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { hospital } from "@/lib/data";
 
 const rotatingMessages = [
@@ -13,12 +12,6 @@ const rotatingMessages = [
   "Multi-Speciality Excellence in Borivali.",
   "24×7 Emergency, Always Ready.",
   "Advanced Diagnostics. Trusted Treatment.",
-];
-
-const heroStats = [
-  { label: "Emergency Care", value: "24×7", isText: true },
-  { label: "Core Specialities", value: 13 },
-  { label: "Leadership Doctors", value: 3 },
 ];
 
 export function Hero() {
@@ -101,35 +94,17 @@ export function Hero() {
               Find a Doctor
             </Button>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-2 grid w-full max-w-lg grid-cols-3 gap-4 border-t border-white/15 pt-5"
-          >
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col gap-1">
-                <span className="font-display text-2xl font-bold text-white sm:text-3xl">
-                  {stat.isText ? (
-                    stat.value
-                  ) : (
-                    <AnimatedCounter value={stat.value as number} />
-                  )}
-                </span>
-                <span className="text-xs font-medium uppercase tracking-wide text-white/50">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
 
       <motion.a
         href="#stats"
-        aria-label="Scroll down"
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/60"
+        aria-label="Scroll to specialities and hospital stats"
+        onClick={(e) => {
+          e.preventDefault();
+          document.querySelector("#specialities")?.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="absolute bottom-28 left-1/2 z-10 -translate-x-1/2 text-white/60 transition-colors hover:text-accent-300"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
       >
