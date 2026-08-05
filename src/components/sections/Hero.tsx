@@ -33,8 +33,8 @@ export function Hero() {
     <section id="home" className="relative flex min-h-[100svh] items-center overflow-hidden">
       <HeroBackground />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 pb-24 lg:px-10 lg:pt-40">
-        <div className="flex max-w-4xl flex-col items-start gap-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-24 pb-10 lg:px-10 lg:pt-28">
+        <div className="flex max-w-4xl flex-col items-start gap-5">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-[clamp(2.6rem,6vw,5rem)] font-extrabold leading-[1.05] tracking-tight text-white"
+            className="font-display text-[clamp(2.25rem,5.5vw,4.5rem)] font-extrabold leading-[1.05] tracking-tight text-white"
           >
             Premium Healthcare,
             <br />
@@ -106,7 +106,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-6 grid w-full max-w-lg grid-cols-3 gap-4 border-t border-white/15 pt-6"
+            className="mt-2 grid w-full max-w-lg grid-cols-3 gap-4 border-t border-white/15 pt-5"
           >
             {heroStats.map((stat) => (
               <div key={stat.label} className="flex flex-col gap-1">
