@@ -143,19 +143,24 @@ export function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {hospital.companyName}. All rights reserved.
           </p>
-          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
             <p>Registered under MCA on {hospital.registeredOn}.</p>
-            <p>
-              Website by{" "}
-              <a
-                href="https://www.danishpalan.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-white/50 hover:text-accent-300"
-              >
-                Danish Palan
-              </a>
-            </p>
+            <a
+              href="https://www.danishpalan.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-white/50 hover:text-accent-300"
+              aria-label="Website by Danish Palan"
+            >
+              Website by
+              <Image
+                src="/images/danish-palan-logo.jpg"
+                alt="Danish Palan"
+                width={18}
+                height={18}
+                className="rounded-full"
+              />
+            </a>
           </div>
         </div>
       </Container>
