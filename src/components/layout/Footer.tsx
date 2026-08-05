@@ -139,11 +139,24 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/10 py-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-t border-white/10 py-8 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
           <p>
             &copy; {new Date().getFullYear()} {hospital.companyName}. All rights reserved.
           </p>
-          <p>Registered under MCA on {hospital.registeredOn}.</p>
+          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-4">
+            <p>Registered under MCA on {hospital.registeredOn}.</p>
+            <p>
+              Website by{" "}
+              <a
+                href="https://www.danishpalan.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/50 hover:text-accent-300"
+              >
+                Danish Palan
+              </a>
+            </p>
+          </div>
         </div>
       </Container>
     </footer>
