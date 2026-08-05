@@ -89,9 +89,12 @@ export function Footer() {
             <ul className="flex flex-col gap-2.5">
               {departments.slice(0, 6).map((dept) => (
                 <li key={dept.slug}>
-                  <a href="#specialities" className="text-sm text-white/65 hover:text-accent-300">
+                  <Link
+                    href={`/specialities/${dept.slug}`}
+                    className="text-sm text-white/65 hover:text-accent-300"
+                  >
                     {dept.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
@@ -112,9 +115,12 @@ export function Footer() {
             <ul className="flex flex-col gap-2.5">
               {doctors.map((doc) => (
                 <li key={doc.name}>
-                  <a href="#leadership" className="text-sm text-white/65 hover:text-accent-300">
+                  <Link
+                    href={`/doctors/${doc.slug}`}
+                    className="text-sm text-white/65 hover:text-accent-300"
+                  >
                     {doc.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
-import { hospital } from "@/lib/data";
+import { hospital, doctors } from "@/lib/data";
 
 const displayFont = Manrope({
   variable: "--font-display",
@@ -81,6 +81,12 @@ const hospitalSchema = {
     postalCode: hospital.address.pincode,
     addressCountry: "IN",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: hospital.geo.lat,
+    longitude: hospital.geo.lng,
+  },
+  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hospital.address.full)}`,
   medicalSpecialty: [
     "Oncology",
     "Hematology",
@@ -93,7 +99,33 @@ const hospitalSchema = {
     "@type": "MedicalProcedure",
     name: "24x7 Emergency Care",
   },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "00:00",
+    closes: "23:59",
+    description: "Emergency department — open 24 hours",
+  },
 };
+
+const physicianSchemas = doctors.map((doctor) => ({
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  name: doctor.name,
+  url: `${siteUrl}/doctors/${doctor.slug}`,
+  jobTitle: doctor.role,
+  medicalSpecialty: doctor.department,
+  worksFor: { "@type": "Hospital", name: hospital.brand, url: siteUrl },
+  ...(doctor.qualifications.length > 0 && { hasCredential: doctor.qualifications }),
+}));
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -128,6 +160,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        {physicianSchemas.map((schema) => (
+          <script
+            key={schema.url}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
         {children}
       </body>
     </html>

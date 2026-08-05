@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { GraduationCap, BriefcaseMedical, Stethoscope, Building } from "lucide-react";
+import { GraduationCap, BriefcaseMedical, Stethoscope, Building, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
@@ -50,7 +51,9 @@ export function Directors() {
                     {initials(doctor.name)}
                   </div>
                   <div>
-                    <h3 className="font-display text-xl font-bold text-white">{doctor.name}</h3>
+                    <Link href={`/doctors/${doctor.slug}`} className="hover:text-accent-300">
+                      <h3 className="font-display text-xl font-bold text-white">{doctor.name}</h3>
+                    </Link>
                     <p className="mt-1 text-sm font-semibold text-accent-300">{doctor.role}</p>
                   </div>
                   {doctor.experience && (
@@ -104,6 +107,13 @@ export function Directors() {
                       </p>
                     </div>
                   )}
+
+                  <Link
+                    href={`/doctors/${doctor.slug}`}
+                    className="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent-300 hover:text-accent-200"
+                  >
+                    View Full Profile <ArrowUpRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </motion.div>
             </Reveal>

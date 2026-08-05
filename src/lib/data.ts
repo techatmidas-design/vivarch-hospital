@@ -14,6 +14,9 @@ export const hospital = {
     pincode: "400068",
     full: "6VV6+G68, SV Rd, Parbat Nagar, Borivali, Mumbai, Maharashtra 400068",
   },
+  // Decoded from the official Plus Code (6VV6+G68, Mumbai) via Google's
+  // Open Location Code algorithm — not an estimate.
+  geo: { lat: 19.2438, lng: 72.8606 },
   emergencyPhone: "+91 93248 48801",
   emergencyPhoneHref: "tel:+919324848801",
   whatsappHref: "https://wa.me/919324848801",
@@ -26,6 +29,8 @@ export const departments = [
     slug: "oncology-hematology",
     description:
       "Comprehensive cancer and blood disorder care spanning diagnosis, chemotherapy and long-term management.",
+    longDescription:
+      "Oncology covers the diagnosis and treatment of cancer, while hematology focuses on disorders of the blood, bone marrow and lymphatic system. Care in this department typically spans diagnostic work-up, chemotherapy and immunotherapy planning, and coordinated long-term follow-up. At Vivarch Hospital, this department is led by our Medical Director, an oncologist with close to two decades of clinical experience.",
     icon: "Microscope",
   },
   {
@@ -33,6 +38,8 @@ export const departments = [
     slug: "neurology",
     description:
       "Diagnosis and treatment of stroke, epilepsy and disorders of the brain and nervous system.",
+    longDescription:
+      "Neurology addresses conditions affecting the brain, spinal cord and nervous system, including stroke, seizure disorders and neuro-critical emergencies. Timely evaluation is important for conditions like stroke, where early treatment materially affects outcomes. Vivarch Hospital's neurological services are led by a neurologist with fellowship training in epilepsy surgery.",
     icon: "Brain",
   },
   {
@@ -40,6 +47,8 @@ export const departments = [
     slug: "epilepsy-care",
     description:
       "Specialised evaluation and long-term management for epilepsy and seizure disorders.",
+    longDescription:
+      "Epilepsy care involves the evaluation, diagnosis and ongoing management of seizure disorders, often requiring sustained follow-up to tailor treatment over time. Our neurology team includes fellowship training specific to epilepsy, supporting structured, long-term care for patients living with seizure disorders.",
     icon: "Zap",
   },
   {
@@ -47,6 +56,8 @@ export const departments = [
     slug: "cardiology",
     description:
       "Heart care including angiography, angioplasty and management of cardiac emergencies.",
+    longDescription:
+      "Cardiology covers the diagnosis and treatment of heart and blood vessel conditions, including procedures such as angiography and angioplasty, and the management of hypertension, heart failure and cardiac emergencies. Vivarch Hospital's cardiology services are led by a cardiologist with over 14 years of clinical experience.",
     icon: "HeartPulse",
   },
   {
@@ -54,6 +65,8 @@ export const departments = [
     slug: "internal-medicine",
     description:
       "General adult medicine for acute illness, chronic disease and preventive care.",
+    longDescription:
+      "Internal medicine covers the prevention, diagnosis and treatment of adult illness — from acute infections to the ongoing management of chronic conditions such as diabetes and hypertension. It's often the first point of contact for adult patients and a coordinating point for referrals to other specialities.",
     icon: "Stethoscope",
   },
   {
@@ -61,48 +74,64 @@ export const departments = [
     slug: "laparoscopic-surgery",
     description:
       "Minimally invasive and general surgical procedures for faster recovery.",
+    longDescription:
+      "General surgery covers a broad range of surgical procedures, while laparoscopic (minimally invasive) techniques use small incisions and specialised instruments, often associated with less post-operative pain and faster recovery compared with open surgery.",
     icon: "Scissors",
   },
   {
     name: "Emergency Care",
     slug: "emergency-care",
     description: "Round-the-clock emergency medical response and stabilisation.",
+    longDescription:
+      "The emergency department at Vivarch Hospital is staffed and available 24 hours a day, every day of the year, for the rapid assessment and stabilisation of medical emergencies. Call our emergency line directly for urgent situations.",
     icon: "Siren",
   },
   {
     name: "ICU",
     slug: "icu",
     description: "Critical care monitoring and management for serious and post-operative patients.",
+    longDescription:
+      "The Intensive Care Unit provides close monitoring and specialised support for critically ill patients and those recovering from major surgery, with continuous observation of vital signs and rapid response to changes in condition.",
     icon: "Activity",
   },
   {
     name: "Diagnostics",
     slug: "diagnostics",
     description: "Integrated diagnostic services supporting accurate, timely clinical decisions.",
+    longDescription:
+      "Accurate diagnosis underpins effective treatment. Vivarch Hospital's diagnostic services bring together imaging, laboratory testing and pathology in-house, helping shorten the time between a patient's first consultation and a confirmed diagnosis.",
     icon: "ScanSearch",
   },
   {
     name: "Pharmacy",
     slug: "pharmacy",
     description: "In-house pharmacy for prescribed medication and patient convenience.",
+    longDescription:
+      "Our in-house pharmacy dispenses prescribed medication on-site, reducing the need for patients and families to travel elsewhere after a consultation, admission or discharge.",
     icon: "Pill",
   },
   {
     name: "Pathology",
     slug: "pathology",
     description: "Laboratory testing and pathological analysis for accurate diagnosis.",
+    longDescription:
+      "Pathology involves the laboratory analysis of blood, tissue and other samples to diagnose disease and guide treatment decisions. In-house pathology services help keep turnaround times short for both routine and urgent tests.",
     icon: "TestTube",
   },
   {
     name: "Radiology & Imaging",
     slug: "radiology",
     description: "USG, sonography and digital X-ray services for precise imaging.",
+    longDescription:
+      "Radiology and imaging services — including ultrasonography (USG), sonography and digital X-ray — give clinicians a non-invasive view inside the body, supporting diagnosis across nearly every department in the hospital.",
     icon: "Radar",
   },
   {
     name: "Preventive Health Checkups",
     slug: "preventive-checkups",
     description: "Structured health screening packages for early detection and prevention.",
+    longDescription:
+      "Preventive health checkups combine relevant screening tests into a structured package, aimed at catching potential health issues early — often before symptoms appear — when they tend to be easier to manage.",
     icon: "ShieldCheck",
   },
 ] as const;
@@ -111,16 +140,19 @@ export const doctors = [
   {
     name: "Dr. Vijay Vilasrao Sharnangat",
     role: "Medical Director & Lead Oncologist",
+    slug: "dr-vijay-vilasrao-sharnangat",
     photo: null,
     qualifications: ["MBBS", "MD Internal Medicine", "DM Medical Oncology"],
     experience: "~20 years experience",
     specializations: ["Chemotherapy", "Immunotherapy", "Bone Marrow Transplant", "Cancer Care"],
     affiliations: ["HCG Cancer Centre Borivali", "Thunga Hospital"],
     department: "Oncology & Hematology",
+    departmentSlug: "oncology-hematology",
   },
   {
     name: "Dr. Rahil Rauf Ansari",
     role: "Director of Neurological Services",
+    slug: "dr-rahil-rauf-ansari",
     photo: null,
     qualifications: [
       "MBBS",
@@ -133,10 +165,12 @@ export const doctors = [
     specializations: ["Stroke", "Epilepsy", "Brain Disorders", "Neuro Critical Care"],
     affiliations: [],
     department: "Neurology",
+    departmentSlug: "neurology",
   },
   {
     name: "Dr. Chandrashekhar Ramdavar Yadav",
     role: "Director of Cardiology",
+    slug: "dr-chandrashekhar-ramdavar-yadav",
     photo: null,
     qualifications: ["MBBS", "MD Medicine", "DM Cardiology"],
     experience: "14+ years experience",
@@ -149,6 +183,7 @@ export const doctors = [
     ],
     affiliations: [],
     department: "Cardiology",
+    departmentSlug: "cardiology",
   },
 ] as const;
 

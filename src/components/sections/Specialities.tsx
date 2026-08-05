@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -29,7 +30,11 @@ export function Specialities() {
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="group relative h-full overflow-hidden rounded-3xl border border-primary-100 bg-white p-7 shadow-[0_2px_20px_-8px_rgba(7,20,38,0.08)] transition-shadow duration-300 hover:shadow-[0_24px_60px_-20px_rgba(0,91,172,0.25)]"
+                  className="group relative h-full"
+                >
+                <Link
+                  href={`/specialities/${dept.slug}`}
+                  className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-primary-100 bg-white p-7 shadow-[0_2px_20px_-8px_rgba(7,20,38,0.08)] transition-shadow duration-300 hover:shadow-[0_24px_60px_-20px_rgba(0,91,172,0.25)]"
                 >
                   <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary-50 transition-transform duration-500 group-hover:scale-125" />
                   <div className="relative flex flex-col gap-5">
@@ -46,6 +51,7 @@ export function Specialities() {
                       </p>
                     </div>
                   </div>
+                </Link>
                 </motion.div>
               </RevealItem>
             );
