@@ -71,6 +71,8 @@ const hospitalSchema = {
   url: siteUrl,
   telephone: hospital.emergencyPhone,
   email: hospital.email,
+  logo: `${siteUrl}/icon.png`,
+  image: `${siteUrl}/images/hospital-exterior.jpeg`,
   address: {
     "@type": "PostalAddress",
     streetAddress: `${hospital.address.line1}, ${hospital.address.line2}`,
@@ -99,7 +101,7 @@ const organizationSchema = {
   name: hospital.companyName,
   alternateName: hospital.brand,
   url: siteUrl,
-  logo: `${siteUrl}/images/logo.png`,
+  logo: `${siteUrl}/icon.png`,
   foundingDate: "2025-01-24",
   contactPoint: {
     "@type": "ContactPoint",
