@@ -15,14 +15,14 @@ const stats = [
 
 export function Stats() {
   return (
-    <section id="stats" className="relative -mt-1 bg-white pb-16 pt-4">
+    <section id="stats" className="relative -mt-1 bg-white pb-16 pt-2">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="relative -mt-20 rounded-3xl border border-primary-100 bg-white/80 p-2 shadow-[0_30px_80px_-30px_rgba(7,20,38,0.25)] backdrop-blur"
+          className="relative -mt-6 rounded-3xl border border-primary-100 bg-white/80 p-2 shadow-[0_30px_80px_-30px_rgba(7,20,38,0.25)] backdrop-blur sm:-mt-12 lg:-mt-20"
         >
           <RevealGroup
             className="grid grid-cols-2 gap-2 rounded-[1.25rem] bg-gradient-to-br from-primary-600 to-primary-800 p-4 sm:p-5 lg:grid-cols-4"

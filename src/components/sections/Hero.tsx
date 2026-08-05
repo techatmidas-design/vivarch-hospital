@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown, Phone, CalendarCheck, Stethoscope } from "lucide-react";
+import { ChevronDown, Phone, CalendarCheck } from "lucide-react";
 import { HeroBackground } from "@/components/sections/HeroBackground";
 import { Button } from "@/components/ui/Button";
 import { hospital } from "@/lib/data";
@@ -90,9 +90,6 @@ export function Hero() {
             <Button href="#contact" variant="accent" size="lg" icon={<CalendarCheck className="h-4 w-4" />}>
               Book Appointment
             </Button>
-            <Button href="#leadership" variant="outline" size="lg" icon={<Stethoscope className="h-4 w-4" />}>
-              Find a Doctor
-            </Button>
           </motion.div>
         </div>
       </div>
@@ -104,7 +101,7 @@ export function Hero() {
           e.preventDefault();
           document.querySelector("#specialities")?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="absolute bottom-28 left-1/2 z-10 -translate-x-1/2 text-white/60 transition-colors hover:text-accent-300"
+        className="absolute bottom-28 left-1/2 z-10 hidden -translate-x-1/2 text-white/60 transition-colors hover:text-accent-300 sm:block"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
       >
