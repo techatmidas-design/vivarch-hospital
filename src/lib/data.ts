@@ -167,9 +167,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Vijay Vilasrao Sharnangat",
     role: "Medical Director & Lead Oncologist",
     slug: "dr-vijay-vilasrao-sharnangat",
-    // Photo intentionally withheld from display for now — set back to
-    // "/images/doctors/dr-vijay-vilasrao-sharnangat.jpg" when told to re-add it.
-    photo: null,
+    photo: "/images/doctors/dr-vijay-vilasrao-sharnangat.jpg",
     qualifications: ["MBBS", "MD Internal Medicine", "DM Medical Oncology"],
     experience: "~20 years experience",
     specializations: [
@@ -190,9 +188,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Rahil Rauf Ansari",
     role: "Director of Neurological Services",
     slug: "dr-rahil-rauf-ansari",
-    // Photo intentionally withheld from display for now — set back to
-    // "/images/doctors/dr-rahil-rauf-ansari.jpg" when told to re-add it.
-    photo: null,
+    photo: "/images/doctors/dr-rahil-rauf-ansari.jpg",
     qualifications: [
       "MBBS",
       "MD",
@@ -212,9 +208,7 @@ export const doctors: Doctor[] = [
     name: "Dr. Chandrashekhar Ramdavar Yadav",
     role: "Director of Cardiology",
     slug: "dr-chandrashekhar-ramdavar-yadav",
-    // Photo intentionally withheld from display for now — set back to
-    // "/images/doctors/dr-chandrashekhar-ramdavar-yadav.jpg" when told to re-add it.
-    photo: null,
+    photo: "/images/doctors/dr-chandrashekhar-ramdavar-yadav.jpg",
     qualifications: ["MBBS", "MD Medicine", "DM Cardiology"],
     experience: "14+ years experience",
     specializations: [
