@@ -35,7 +35,7 @@ export function Contact() {
     e.preventDefault();
     const subject = `Appointment Enquiry from ${form.name}`;
     const body = `Name: ${form.name}\nPhone: ${form.phone}\nMessage: ${form.message || "—"}`;
-    window.location.href = `mailto:${hospital.enquiryEmail}?subject=${encodeURIComponent(
+    window.location.href = `mailto:${hospital.email}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
   }
@@ -105,7 +105,7 @@ export function Contact() {
             >
               <h3 className="font-display text-xl font-bold text-ink">Request an Appointment</h3>
               <p className="-mt-3 text-sm text-slate-500">
-                Sent to {hospital.enquiryEmail} — we&apos;ll confirm your slot shortly.
+                Sent to {hospital.email} — we&apos;ll confirm your slot shortly.
               </p>
 
               <div className="flex flex-col gap-1.5">

@@ -31,9 +31,7 @@ export const hospital = {
   emergencyPhone: "+91 93248 48801",
   emergencyPhoneHref: "tel:+919324848801",
   whatsappHref: "https://wa.me/919324848801",
-  email: "vivarchhealthcare@gmail.com",
-  // Where the Contact form's enquiries are addressed to.
-  enquiryEmail: "enquiry@vivarchhospital.com",
+  email: "enquiry@vivarchhospital.com",
 } as const;
 
 export const departments = [
@@ -378,6 +376,6 @@ export const faqs = [
   {
     question: "How can I contact the hospital for queries?",
     answer:
-      "You can reach us by phone at +91 93248 48801, by email at vivarchhealthcare@gmail.com, or by visiting us at our Borivali location.",
+      "You can reach us by phone at +91 93248 48801, by email at enquiry@vivarchhospital.com, or by visiting us at our Borivali location.",
   },
 ] as const;

@@ -9,7 +9,6 @@ import { Directors } from "@/components/sections/Directors";
 import { Emergency } from "@/components/sections/Emergency";
 import { Technology } from "@/components/sections/Technology";
 import { PatientJourney } from "@/components/sections/PatientJourney";
-import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { faqs } from "@/lib/data";
@@ -42,7 +41,6 @@ export default function Home() {
         <Emergency />
         <Technology />
         <PatientJourney />
-        <Testimonials />
         <FAQ />
         <Contact />
       </main>

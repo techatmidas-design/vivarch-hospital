@@ -14,7 +14,6 @@ const navLinks = [
   { label: "Why Vivarch", href: "#why-vivarch" },
   { label: "Leadership", href: "#leadership" },
   { label: "Technology", href: "#technology" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
