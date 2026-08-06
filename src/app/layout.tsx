@@ -87,7 +87,7 @@ const hospitalSchema = {
     latitude: hospital.geo.lat,
     longitude: hospital.geo.lng,
   },
-  hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hospital.address.full)}`,
+  hasMap: `https://www.google.com/maps?cid=${hospital.placeCid}`,
   medicalSpecialty: [
     "Oncology",
     "Hematology",

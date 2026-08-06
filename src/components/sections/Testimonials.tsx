@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
+import { hospital } from "@/lib/data";
 
 // Patient testimonials will populate here once collected — intentionally left
 // empty rather than filled with placeholder quotes attributed to patients.
@@ -39,7 +40,7 @@ export function Testimonials() {
                 reviews will appear here as they come in through Google.
               </p>
               <Button
-                href="https://www.google.com/maps/search/?api=1&query=Vivarch+Hospital+Borivali"
+                href={`https://www.google.com/maps?cid=${hospital.placeCid}`}
                 variant="ghost"
                 icon={<ExternalLink className="h-4 w-4" />}
               >

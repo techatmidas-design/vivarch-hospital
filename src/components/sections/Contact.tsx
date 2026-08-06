@@ -21,15 +21,12 @@ const contactPoints = [
     icon: MapPin,
     label: "Address",
     value: hospital.address.full,
-    href: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(hospital.address.full),
+    href: `https://www.google.com/maps?cid=${hospital.placeCid}`,
   },
   { icon: Clock, label: "Emergency Hours", value: "Open 24 Hours, Every Day", href: null },
 ];
 
-const mapSrc =
-  "https://maps.google.com/maps?q=" +
-  encodeURIComponent(hospital.address.full) +
-  "&output=embed";
+const mapSrc = `https://maps.google.com/maps?cid=${hospital.placeCid}&output=embed`;
 
 export function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });

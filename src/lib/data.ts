@@ -22,6 +22,12 @@ export const hospital = {
   // live Google Business Profile listing, via Google's Open Location
   // Code algorithm — not an estimate.
   geo: { lat: 19.243688, lng: 72.860188 },
+  // Google's CID for the actual "VIVARCH HOSPITAL" business listing —
+  // resolved from the share link the hospital sent
+  // (maps.app.goo.gl/29xdTfzbym6VYwN87), decoded from its Place feature
+  // ID (0x41a1327982aa0723). This points at the exact verified pin,
+  // with no text-geocoding ambiguity.
+  placeCid: "4729116581180344099",
   emergencyPhone: "+91 93248 48801",
   emergencyPhoneHref: "tel:+919324848801",
   whatsappHref: "https://wa.me/919324848801",
