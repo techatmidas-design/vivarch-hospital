@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle, CheckCircle2 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -28,16 +28,27 @@ const contactPoints = [
 
 const mapSrc = `https://maps.google.com/maps?cid=${hospital.placeCid}&output=embed`;
 
+type Status = "idle" | "loading" | "success" | "error";
+
 export function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [status, setStatus] = useState<Status>("idle");
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const subject = `Appointment Enquiry from ${form.name}`;
-    const body = `Name: ${form.name}\nPhone: ${form.phone}\nMessage: ${form.message || "—"}`;
-    window.location.href = `mailto:${hospital.email}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("success");
+      setForm({ name: "", phone: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
   }
 
   function handleWhatsApp() {
@@ -99,73 +110,97 @@ export function Contact() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form
-              onSubmit={handleSubmit}
-              className="flex h-full flex-col gap-5 rounded-3xl border border-primary-100 bg-gradient-to-br from-mist to-white p-8"
-            >
-              <h3 className="font-display text-xl font-bold text-ink">Request an Appointment</h3>
-              <p className="-mt-3 text-sm text-slate-500">
-                Sent to {hospital.email} — we&apos;ll confirm your slot shortly.
-              </p>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Full Name
-                </label>
-                <input
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="rounded-xl border border-primary-100 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary-400"
-                  placeholder="Your name"
-                />
+            {status === "success" ? (
+              <div className="flex h-full flex-col items-center justify-center gap-4 rounded-3xl border border-primary-100 bg-gradient-to-br from-mist to-white p-8 text-center">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary-500/10 text-primary-500">
+                  <CheckCircle2 className="h-8 w-8" />
+                </span>
+                <h3 className="font-display text-xl font-bold text-ink">Enquiry Sent!</h3>
+                <p className="max-w-xs text-sm text-slate-500">
+                  Thank you — your enquiry has reached us at {hospital.email}. We&apos;ll get back
+                  to you shortly.
+                </p>
+                <Button variant="ghost" onClick={() => setStatus("idle")}>
+                  Send another enquiry
+                </Button>
               </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Phone Number
-                </label>
-                <input
-                  required
-                  type="tel"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="rounded-xl border border-primary-100 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary-400"
-                  placeholder="+91 00000 00000"
-                />
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                  Message (optional)
-                </label>
-                <textarea
-                  rows={3}
-                  value={form.message}
-                  onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="resize-none rounded-xl border border-primary-100 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary-400"
-                  placeholder="Tell us what you need help with"
-                />
-              </div>
-
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(0,91,172,0.6)] transition-colors hover:bg-primary-600"
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="flex h-full flex-col gap-5 rounded-3xl border border-primary-100 bg-gradient-to-br from-mist to-white p-8"
               >
-                <Send className="h-4 w-4" /> Send Enquiry
-              </motion.button>
+                <h3 className="font-display text-xl font-bold text-ink">Request an Appointment</h3>
+                <p className="-mt-3 text-sm text-slate-500">
+                  Sent to {hospital.email} — we&apos;ll confirm your slot shortly.
+                </p>
 
-              <div className="grid grid-cols-2 gap-3">
-                <Button variant="ghost" onClick={handleWhatsApp} icon={<MessageCircle className="h-4 w-4" />}>
-                  WhatsApp
-                </Button>
-                <Button href={hospital.emergencyPhoneHref} variant="ghost" icon={<Phone className="h-4 w-4" />}>
-                  Call Us
-                </Button>
-              </div>
-            </form>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Full Name
+                  </label>
+                  <input
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className="rounded-xl border border-primary-100 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary-400"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Phone Number
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className="rounded-xl border border-primary-100 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary-400"
+                    placeholder="+91 00000 00000"
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Message (optional)
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    className="resize-none rounded-xl border border-primary-100 bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary-400"
+                    placeholder="Tell us what you need help with"
+                  />
+                </div>
+
+                {status === "error" && (
+                  <p className="text-sm font-medium text-red-600">
+                    Something went wrong sending your enquiry. Please try WhatsApp or call us
+                    instead.
+                  </p>
+                )}
+
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(0,91,172,0.6)] transition-colors hover:bg-primary-600 disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                  <Send className="h-4 w-4" /> {status === "loading" ? "Sending…" : "Send Enquiry"}
+                </motion.button>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <Button variant="ghost" onClick={handleWhatsApp} icon={<MessageCircle className="h-4 w-4" />}>
+                    WhatsApp
+                  </Button>
+                  <Button href={hospital.emergencyPhoneHref} variant="ghost" icon={<Phone className="h-4 w-4" />}>
+                    Call Us
+                  </Button>
+                </div>
+              </form>
+            )}
           </Reveal>
         </div>
       </Container>
