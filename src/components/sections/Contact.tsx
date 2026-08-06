@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -33,6 +33,14 @@ export function Contact() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const subject = `Appointment Enquiry from ${form.name}`;
+    const body = `Name: ${form.name}\nPhone: ${form.phone}\nMessage: ${form.message || "—"}`;
+    window.location.href = `mailto:${hospital.enquiryEmail}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  }
+
+  function handleWhatsApp() {
     const text = `Appointment Request%0AName: ${encodeURIComponent(form.name)}%0APhone: ${encodeURIComponent(
       form.phone
     )}%0AMessage: ${encodeURIComponent(form.message || "—")}`;
@@ -97,7 +105,7 @@ export function Contact() {
             >
               <h3 className="font-display text-xl font-bold text-ink">Request an Appointment</h3>
               <p className="-mt-3 text-sm text-slate-500">
-                Sent directly to us on WhatsApp — we&apos;ll confirm your slot shortly.
+                Sent to {hospital.enquiryEmail} — we&apos;ll confirm your slot shortly.
               </p>
 
               <div className="flex flex-col gap-1.5">
@@ -146,12 +154,17 @@ export function Contact() {
                 type="submit"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(0,91,172,0.6)] transition-colors hover:bg-primary-600"
               >
-                <Send className="h-4 w-4" /> Send via WhatsApp
+                <Send className="h-4 w-4" /> Send Enquiry
               </motion.button>
 
-              <Button href={hospital.emergencyPhoneHref} variant="ghost" icon={<Phone className="h-4 w-4" />}>
-                Or call us directly
-              </Button>
+              <div className="grid grid-cols-2 gap-3">
+                <Button variant="ghost" onClick={handleWhatsApp} icon={<MessageCircle className="h-4 w-4" />}>
+                  WhatsApp
+                </Button>
+                <Button href={hospital.emergencyPhoneHref} variant="ghost" icon={<Phone className="h-4 w-4" />}>
+                  Call Us
+                </Button>
+              </div>
             </form>
           </Reveal>
         </div>

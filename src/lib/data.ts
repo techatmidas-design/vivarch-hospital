@@ -32,6 +32,8 @@ export const hospital = {
   emergencyPhoneHref: "tel:+919324848801",
   whatsappHref: "https://wa.me/919324848801",
   email: "vivarchhealthcare@gmail.com",
+  // Where the Contact form's enquiries are addressed to.
+  enquiryEmail: "enquiry@vivarchhospital.com",
 } as const;
 
 export const departments = [

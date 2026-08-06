@@ -11,17 +11,17 @@ import { hospital } from "@/lib/data";
 export function Emergency() {
   return (
     <section className="relative overflow-hidden bg-primary-900 py-24">
-      <div className="absolute inset-y-0 right-0 hidden w-[30rem] xl:block">
+      <div className="absolute inset-y-0 right-0 hidden w-[26rem] md:block">
         <Image
           src="/images/facility/ambulance.jpg"
           alt="Vivarch Hospital emergency ambulance"
           fill
-          sizes="480px"
-          className="object-cover opacity-60"
+          sizes="416px"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/40 to-primary-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-900/20 to-transparent" />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-red-950/40 via-primary-900 to-primary-900/70" />
+      <div className="absolute inset-0 bg-gradient-to-r from-red-950/40 via-primary-900/85 to-primary-900/30 md:to-primary-900/50" />
       <div className="pointer-events-none absolute -left-20 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-red-600/10 blur-[120px]" />
 
       <Container className="relative">
