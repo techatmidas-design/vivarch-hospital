@@ -6,17 +6,22 @@ export const hospital = {
   brand: "Vivarch Hospital",
   registeredOn: "24 January 2025",
   address: {
-    line1: "6VV6+G68",
+    line1: "Shiv Parbat Building",
     line2: "SV Rd, Parbat Nagar",
     area: "Borivali",
     city: "Mumbai",
     state: "Maharashtra",
     pincode: "400068",
-    full: "6VV6+G68, SV Rd, Parbat Nagar, Borivali, Mumbai, Maharashtra 400068",
+    full: "Shiv Parbat Building, SV Rd, Parbat Nagar, Borivali, Mumbai, Maharashtra 400068",
+    // Matches the verified Google Business Profile listing exactly (same
+    // wording), so the site's map/links resolve to the same pin as the
+    // live, reviewed listing instead of a raw Plus Code query.
+    plusCode: "6VV6+F3",
   },
-  // Decoded from the official Plus Code (6VV6+G68, Mumbai) via Google's
-  // Open Location Code algorithm — not an estimate.
-  geo: { lat: 19.2438, lng: 72.8606 },
+  // Decoded from the verified Plus Code (6VV6+F3, Mumbai) shown on the
+  // live Google Business Profile listing, via Google's Open Location
+  // Code algorithm — not an estimate.
+  geo: { lat: 19.243688, lng: 72.860188 },
   emergencyPhone: "+91 93248 48801",
   emergencyPhoneHref: "tel:+919324848801",
   whatsappHref: "https://wa.me/919324848801",
