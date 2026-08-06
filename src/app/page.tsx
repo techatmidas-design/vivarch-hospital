@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Stats } from "@/components/sections/Stats";
 import { Specialities } from "@/components/sections/Specialities";
 import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { Facility } from "@/components/sections/Facility";
 import { Directors } from "@/components/sections/Directors";
 import { Emergency } from "@/components/sections/Emergency";
 import { Technology } from "@/components/sections/Technology";
@@ -36,6 +37,7 @@ export default function Home() {
         <Stats />
         <Specialities />
         <WhyChooseUs />
+        <Facility />
         <Directors />
         <Emergency />
         <Technology />

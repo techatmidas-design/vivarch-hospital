@@ -82,6 +82,7 @@ export function Footer() {
             </ul>
           </div>
 
+
           <div className="flex flex-col gap-4">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white/40">
               Departments
