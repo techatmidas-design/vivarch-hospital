@@ -31,7 +31,7 @@ export function Directors() {
         }}
       />
 
-      <Container className="relative flex flex-col gap-16">
+      <Container className="relative flex max-w-[1600px] flex-col gap-16">
         <SectionHeading
           kicker="Leadership"
           title="Meet the Medical Directors"
