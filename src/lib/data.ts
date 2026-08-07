@@ -312,31 +312,37 @@ export const technologyFeatures = [
     title: "Digital Health Records",
     description: "Patient information organised digitally for continuity of care.",
     icon: "FileDigit",
+    image: "/images/facility/reception.jpg",
   },
   {
     title: "Modern Diagnostics",
     description: "USG, sonography and digital X-ray for precise clinical insight.",
     icon: "ScanSearch",
+    image: "/images/facility/compassion.jpg",
   },
   {
     title: "Advanced Imaging",
     description: "Digital imaging infrastructure supporting faster, clearer diagnosis.",
     icon: "Aperture",
+    image: "/images/facility/corridor.jpg",
   },
   {
     title: "Patient Management",
     description: "Streamlined admission, treatment and discharge workflows.",
     icon: "ClipboardList",
+    image: "/images/facility/lounge-lobby.jpg",
   },
   {
     title: "Online Appointments",
     description: "Book consultations with our specialists ahead of your visit.",
     icon: "CalendarCheck",
+    image: "/images/facility/lounge-view.jpg",
   },
   {
     title: "Future-Ready Infrastructure",
     description: "A hospital built to expand its technology and specialities over time.",
     icon: "Building2",
+    image: "/images/hospital-exterior.jpeg",
   },
 ] as const;
 

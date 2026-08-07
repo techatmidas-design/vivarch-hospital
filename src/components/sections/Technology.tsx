@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -27,9 +28,19 @@ export function Technology() {
                   className="group relative flex h-full flex-col gap-5 overflow-hidden rounded-3xl border border-primary-100 bg-gradient-to-b from-mist to-white p-7"
                 >
                   <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary-500/0 to-accent-400/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-900 text-accent-300 shadow-md">
-                    {Icon && <Icon className="h-6 w-6" strokeWidth={1.75} />}
-                  </span>
+                  <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-2xl shadow-md">
+                    <Image
+                      src={feature.image}
+                      alt=""
+                      fill
+                      sizes="56px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-primary-900/55" />
+                    <span className="absolute inset-0 flex items-center justify-center text-accent-300">
+                      {Icon && <Icon className="h-6 w-6" strokeWidth={1.75} />}
+                    </span>
+                  </div>
                   <div>
                     <h3 className="font-display text-lg font-bold text-ink">{feature.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-slate-600">
