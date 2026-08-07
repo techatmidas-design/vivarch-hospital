@@ -39,20 +39,17 @@ export function Directors() {
           light
         />
 
-        <RevealGroup
-          className="mx-auto grid w-full max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2"
-          stagger={0.08}
-        >
+        <RevealGroup className="grid w-full grid-cols-1 gap-6 lg:grid-cols-2" stagger={0.08}>
           {doctors.map((doctor) => (
             <RevealItem key={doctor.name}>
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.3 }}
-                className="glass flex h-full flex-col gap-4 rounded-[1.75rem] p-5"
+                className="glass flex h-full flex-col gap-5 rounded-[1.75rem] p-5 sm:flex-row sm:gap-6"
               >
                 <Link
                   href={`/doctors/${doctor.slug}`}
-                  className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl ring-1 ring-white/15 transition-all duration-500 hover:ring-accent-400/60"
+                  className="group relative block aspect-[4/5] w-full flex-shrink-0 overflow-hidden rounded-2xl ring-1 ring-white/15 transition-all duration-500 hover:ring-accent-400/60 sm:w-48"
                 >
                   {doctor.photo ? (
                     <>
@@ -60,7 +57,7 @@ export function Directors() {
                         src={doctor.photo}
                         alt={`${doctor.name}, ${doctor.role} at Vivarch Hospital`}
                         fill
-                        sizes="(min-width: 640px) 320px, 90vw"
+                        sizes="(min-width: 640px) 192px, 90vw"
                         className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-primary-900/0 to-primary-900/10" />
@@ -100,6 +97,17 @@ export function Directors() {
                         className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-white/80"
                       >
                         {q}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {doctor.specializations.slice(0, 3).map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-full bg-accent-500/15 px-2.5 py-1 text-[11px] font-medium text-accent-300"
+                      >
+                        {s}
                       </span>
                     ))}
                   </div>
