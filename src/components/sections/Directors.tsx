@@ -93,9 +93,11 @@ export function Directors() {
 
                 <div className="flex flex-col gap-6 border-t border-white/10 pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
                   {doctor.achievement && (
-                    <div className="flex items-center gap-3 rounded-2xl border border-accent-400/20 bg-accent-500/10 px-4 py-3">
-                      <Award className="h-5 w-5 flex-shrink-0 text-accent-300" />
-                      <p className="text-sm font-semibold text-accent-100">{doctor.achievement}</p>
+                    <div className="flex items-center gap-3 rounded-2xl border border-accent-400/30 bg-gradient-to-r from-accent-500/20 via-accent-500/10 to-transparent px-4 py-3 shadow-[0_0_24px_-8px_rgba(63,208,214,0.5)]">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-accent-400 text-primary-900 shadow-[0_0_12px_rgba(111,227,224,0.7)]">
+                        <Award className="h-4 w-4" strokeWidth={2} />
+                      </span>
+                      <p className="text-sm font-semibold text-white">{doctor.achievement}</p>
                     </div>
                   )}
 
