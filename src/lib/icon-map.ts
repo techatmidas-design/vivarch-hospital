@@ -23,6 +23,7 @@ import {
   Building2,
   MapPin,
   Repeat,
+  Baby,
   type LucideIcon,
 } from "lucide-react";
 
@@ -51,4 +52,5 @@ export const iconMap: Record<string, LucideIcon> = {
   Building2,
   MapPin,
   Repeat,
+  Baby,
 };

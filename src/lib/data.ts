@@ -145,6 +145,14 @@ export const departments = [
       "Preventive health checkups combine relevant screening tests into a structured package, aimed at catching potential health issues early — often before symptoms appear — when they tend to be easier to manage.",
     icon: "ShieldCheck",
   },
+  {
+    name: "Obstetrics & Gynaecology",
+    slug: "obstetrics-gynaecology",
+    description: "Pregnancy care, gynaecological surgery and fertility care, including IVF.",
+    longDescription:
+      "Obstetrics covers care through pregnancy and childbirth, while gynaecology addresses the broader reproductive health of women, including surgical procedures and fertility treatment such as IVF. Vivarch Hospital's obstetrics and gynaecology services are led by a specialist with dedicated IVF training.",
+    icon: "Baby",
+  },
 ] as const;
 
 type Doctor = {
@@ -223,6 +231,30 @@ export const doctors: Doctor[] = [
     registrationNumber: null,
     department: "Cardiology",
     departmentSlug: "cardiology",
+  },
+  {
+    name: "Dr. Aditi Yadav",
+    role: "Obstetrician & Gynaecologist",
+    slug: "dr-aditi-yadav",
+    photo: "/images/doctors/dr-aditi-yadav.jpg",
+    qualifications: ["MBBS", "MS Obstetrics & Gynaecology"],
+    experience: "10 years experience",
+    specializations: [
+      "Pregnancy Care",
+      "IVF & Fertility",
+      "Surgical Procedures",
+      "Women's Reproductive Health",
+    ],
+    affiliations: [
+      "Jaslok Hospital",
+      "Cooper Hospital",
+      "Sion Hospital (Internship)",
+      "Dr. Nagori Institute, Ahmedabad (IVF Training)",
+    ],
+    achievement: "IVF trained at Dr. Nagori Institute, Ahmedabad",
+    registrationNumber: null,
+    department: "Obstetrics & Gynaecology",
+    departmentSlug: "obstetrics-gynaecology",
   },
 ];
 
