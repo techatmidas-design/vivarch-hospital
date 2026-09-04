@@ -145,6 +145,17 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {hospital.companyName}. All rights reserved.
           </p>
           <p>Registered under MCA on {hospital.registeredOn}.</p>
+          <p className="text-white/30 text-xs">
+            Developed by{" "}
+            <a
+              href="https://www.danishpalan.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white/50 hover:text-primary transition-colors"
+            >
+              Danish Palan
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
