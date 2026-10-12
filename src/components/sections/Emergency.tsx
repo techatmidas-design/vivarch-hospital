@@ -65,6 +65,14 @@ export function Emergency() {
             >
               {hospital.emergencyPhone}
             </a>
+            <p className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm font-semibold text-white/60 lg:justify-end">
+              <span>Also:</span>
+              {hospital.secondaryPhones.map((phone) => (
+                <a key={phone.href} href={phone.href} className="transition-colors hover:text-accent-300">
+                  {phone.label}
+                </a>
+              ))}
+            </p>
             <div className="flex gap-3">
               <Button href={hospital.emergencyPhoneHref} variant="emergency" icon={<Phone className="h-4 w-4" />}>
                 Call Now

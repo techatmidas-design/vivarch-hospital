@@ -47,9 +47,24 @@ export function Footer() {
               around expert care and patient trust.
             </p>
             <div className="flex flex-col gap-2.5 text-sm text-white/60">
-              <a href={hospital.emergencyPhoneHref} className="flex items-center gap-2.5 hover:text-accent-300">
-                <Phone className="h-4 w-4 flex-shrink-0" /> {hospital.emergencyPhone}
-              </a>
+              <div className="flex items-start gap-2.5">
+                <Phone className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                <div className="flex flex-col">
+                  <a
+                    href={hospital.emergencyPhoneHref}
+                    className="font-semibold text-white hover:text-accent-300"
+                  >
+                    {hospital.emergencyPhone}
+                  </a>
+                  <div className="mt-1 flex flex-col text-[13px] text-white/45">
+                    {hospital.secondaryPhones.map((phone) => (
+                      <a key={phone.href} href={phone.href} className="py-0.5 hover:text-accent-300">
+                        {phone.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
               <a href={`mailto:${hospital.email}`} className="flex items-center gap-2.5 hover:text-accent-300">
                 <Mail className="h-4 w-4 flex-shrink-0" /> {hospital.email}
               </a>

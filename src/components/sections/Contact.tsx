@@ -10,12 +10,6 @@ import { Button } from "@/components/ui/Button";
 import { hospital } from "@/lib/data";
 
 const contactPoints = [
-  {
-    icon: Phone,
-    label: "Emergency / Phone",
-    value: hospital.emergencyPhone,
-    href: hospital.emergencyPhoneHref,
-  },
   { icon: Mail, label: "Email", value: hospital.email, href: `mailto:${hospital.email}` },
   {
     icon: MapPin,
@@ -79,6 +73,41 @@ export function Contact() {
               />
             </div>
             <div className="flex flex-col gap-3">
+              <div className="flex items-start gap-3 rounded-2xl border border-primary-100 bg-mist p-4">
+                <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white text-primary-500 shadow-sm">
+                  <Phone className="h-4.5 w-4.5" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    Emergency / Phone
+                  </p>
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                    <a
+                      href={hospital.emergencyPhoneHref}
+                      className="font-display text-lg font-bold leading-tight text-ink hover:text-primary-600"
+                    >
+                      {hospital.emergencyPhone}
+                    </a>
+                    <span className="rounded-full bg-primary-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary-600">
+                      Primary
+                    </span>
+                  </div>
+                  <div className="mt-3 border-t border-primary-100 pt-3">
+                    <p className="text-[11px] font-medium text-slate-400">Alternate numbers</p>
+                    <div className="mt-1 flex flex-col gap-y-0.5 sm:flex-row sm:flex-wrap sm:gap-x-8">
+                      {hospital.secondaryPhones.map((phone) => (
+                        <a
+                          key={phone.href}
+                          href={phone.href}
+                          className="py-0.5 text-sm font-medium text-slate-600 hover:text-primary-600"
+                        >
+                          {phone.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
               {contactPoints.map((point) => (
                 <div
                   key={point.label}

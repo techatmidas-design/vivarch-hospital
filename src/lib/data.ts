@@ -28,9 +28,15 @@ export const hospital = {
   // ID (0x41a1327982aa0723). This points at the exact verified pin,
   // with no text-geocoding ambiguity.
   placeCid: "4729116581180344099",
-  emergencyPhone: "+91 93248 48801",
-  emergencyPhoneHref: "tel:+919324848801",
-  whatsappHref: "https://wa.me/919324848801",
+  // Primary number — used by every main "Call Us" / "Call Now" button.
+  emergencyPhone: "+91 72089 39277",
+  emergencyPhoneHref: "tel:+917208939277",
+  // Secondary numbers, shown alongside the primary in contact listings.
+  secondaryPhones: [
+    { label: "+91 72089 39278", href: "tel:+917208939278" },
+    { label: "+91 93248 48801", href: "tel:+919324848801" },
+  ],
+  whatsappHref: "https://wa.me/917208939277",
   email: "enquiry@vivarchhospital.com",
 } as const;
 
@@ -394,7 +400,7 @@ export const faqs = [
   {
     question: "Is emergency care available 24×7?",
     answer:
-      "Yes. Our emergency department is available 24 hours a day, 7 days a week. For emergencies, call +91 93248 48801.",
+      "Yes. Our emergency department is available 24 hours a day, 7 days a week. For emergencies, call +91 72089 39277.",
   },
   {
     question: "How do I book an appointment?",
@@ -414,6 +420,6 @@ export const faqs = [
   {
     question: "How can I contact the hospital for queries?",
     answer:
-      "You can reach us by phone at +91 93248 48801, by email at enquiry@vivarchhospital.com, or by visiting us at our Borivali location.",
+      "You can reach us by phone at +91 72089 39277 (also +91 72089 39278 or +91 93248 48801), by email at enquiry@vivarchhospital.com, or by visiting us at our Borivali location.",
   },
 ] as const;
